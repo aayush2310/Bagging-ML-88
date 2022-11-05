@@ -1,0 +1,55 @@
+import numpy as np
+import pandas as pd
+import os
+for dirname, _, filenames in os.walk('/kaggle/input'):
+    for filename in filenames:
+        print(os.path.join(dirname, filename))
+        
+df=pd.read_csv('/kaggle/input/iris/Iris.csv')
+
+df.head()
+
+df=df.iloc[:,1:]
+
+df.head()
+
+from sklearn.preprocessing import LabelEncoder
+
+encoder=LabelEncoder()
+
+df['Species']=encoder.fit_transform(df['Species'])
+
+df.head()
+
+df=df[df['Species']!=0][['SepalWidthCm','PetalLengthCm','Species']]
+
+df.head()
+
+import seaborn as sns
+import  matplotlib.pyplot as plt
+
+plt.scatter(df['SepalWidthCm'],df['PetalLengthCm'],c=df['Species'],cmap='winter')
+
+
+
+
+
+
+#NOW BAGGING STARTS
+
+
+#Taking 10 rows for training
+
+df=df.sample(100)
+df_train=df.iloc[:60,:].sample(10)
+df_val=df.iloc[60:80,:].sample(5)
+df_test=df.iloc[80:,:].sample(5)
+
+df_train
+
+df_val
+
+df_test
+
+x_test=df_val.iloc[:,0:2].values
+y_test=df_val.iloc[:,-1].values
