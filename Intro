@@ -1,0 +1,17 @@
+Bootstarpping+aggregation
+
+Randomly drawing samples from a dataset-bootstrapping
+We will take multiple models but of the same algo
+We will give a part of dataset to every model.every model trained on different dataset.We will do sampling on our dataset to generate different combinations.
+Now our model is trained and we get a new query point.So we will give this query point to each model,since it is classification,it will predict either 0 or 1.We will take
+the majority count(mode)
+By using bagging we can achive low variance and low bias.
+In bagging we use algos having low bias and high variance.eg:-Decision tree with max depth=none
+How variace gets reduced?
+=>Lets suppose we had a dataset of 30k points out of which we changed 1k points.so now,since we are providing different samples of our dataset to the different models,it 
+is never possible that those 1000 changed points go into the same model.so,the models will not vary much leading to low variance.Impact gets distributed.Gives consistent 
+result.
+
+When to use?
+Almost everytime,especially if dealing with low bias,high variance project.
+
