@@ -35,6 +35,7 @@ plt.scatter(df['SepalWidthCm'],df['PetalLengthCm'],c=df['Species'],cmap='winter'
 
 
 
+
 #NOW BAGGING STARTS
 
 
@@ -53,3 +54,21 @@ df_test
 
 x_test=df_val.iloc[:,0:2].values
 y_test=df_val.iloc[:,-1].values
+
+
+
+x_test
+
+y_test
+
+
+#CASE-1=>Bagging
+
+#Data for Tree 1
+df_bag=df_train.sample(8,rerplace=True)
+
+x=df_bag.iloc[:,0:2]
+y=df_bag.iloc[:,-1]
+
+df_bag
+
